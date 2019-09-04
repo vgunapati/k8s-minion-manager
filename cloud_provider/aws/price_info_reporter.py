@@ -148,7 +148,8 @@ class AWSPriceReporter(object):
             except Exception as exc:
                 logger.info("Failed while reporting price info: " + str(exc))
 
-        app.run(host='0.0.0.0')
+        http_server = WSGIServer(('', 5000), app)
+        http_server.serve_forever()
 
     def run(self):
         """ Main method of the price-updater. """
