@@ -5,6 +5,9 @@ agent:
 blocks:
   - name: Test
     task:
+      env_vars:
+        - name: PYTHON_VERSION
+          values: '2.7'
       jobs:
         - commands:
             - sem-version python $PYTHON_VERSION
@@ -16,9 +19,6 @@ blocks:
             - flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
             - pip install pytest
             - pytest --junitxml=./pytest-results.xml -s --color=yes ./
-          env_vars:
-            - name: PYTHON_VERSION
-              values: '2.7'
           name: pytest
 name: Python
 version: v1.0
