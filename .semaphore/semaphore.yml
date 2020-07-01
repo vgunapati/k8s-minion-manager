@@ -7,7 +7,7 @@ blocks:
     task:
       env_vars:
         - name: PYTHON_VERSION
-          values: '2.7'
+          value: '2.7'
       jobs:
         - commands:
             - sem-version python $PYTHON_VERSION
